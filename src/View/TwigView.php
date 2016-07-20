@@ -164,7 +164,7 @@ class TwigView extends View
     protected function generateHelperList()
     {
         $registry = $this->helpers();
-        $helpers = $registry->normalizeArray($this->helpers);
+        $helpers = $registry->normalizeArray($registry->loaded());
         foreach ($helpers as $properties) {
             list(, $class) = pluginSplit($properties['class']);
             $this->helperList[$class] = $this->{$class};
